@@ -29,3 +29,5 @@ NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=
 #Gemini
 GEMINI_API_KEY=
 ```
+
+## Connected to Lumora Repository
