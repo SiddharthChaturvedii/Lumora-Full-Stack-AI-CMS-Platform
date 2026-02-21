@@ -16,13 +16,6 @@ export default function Header() {
   const path = usePathname();
   const router = useRouter();
 
-  // Redirect authenticated users from landing page to feed
-  useEffect(() => {
-    if (!isLoading && isAuthenticated && path === "/") {
-      router.push("/feed");
-    }
-  }, [isLoading, isAuthenticated, path, router]);
-
   // Hide header on dashboard and public profile/post pages
   if (path.includes("/dashboard")) {
     return null;
@@ -38,7 +31,7 @@ export default function Header() {
       {/* Center - Glass Navigation Container */}
       <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-full px-4 sm:px-6 md:px-8 py-3 flex items-center justify-between gap-2">
         {/* Logo */}
-        <Link href={isAuthenticated ? "/feed" : "/"} className="flex-shrink-0">
+        <Link href="/" className="flex-shrink-0">
           <Image
             src="/logo.png"
             alt="Creatr Logo"

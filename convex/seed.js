@@ -60,7 +60,7 @@ export const generateSeedData = mutation({
                 authorId: authorId,
                 category: template.category,
                 tags: template.tags,
-                featuredImage: `https://source.unsplash.com/random/800x600?${template.category.toLowerCase()}`,
+                featuredImage: `https://picsum.photos/seed/${template.category.toLowerCase()}/800/600`,
 
                 createdAt: Date.now() - Math.floor(Math.random() * 1000000000), // Random time in past
                 updatedAt: Date.now(),
@@ -110,4 +110,22 @@ export const generateSeedData = mutation({
 
         return "Successfully seeded database with Users, Posts, Comments, and Likes!";
     },
+});
+
+export const fixImages = mutation({
+    args: {},
+    handler: async (ctx) => {
+        const posts = await ctx.db.query("posts").collect();
+        let fixedCount = 0;
+        for (const post of posts) {
+            if (post.featuredImage && post.featuredImage.includes("source.unsplash.com")) {
+                const category = post.category ? post.category.toLowerCase() : "general";
+                await ctx.db.patch(post._id, {
+                    featuredImage: `https://picsum.photos/seed/${category}/800/600`
+                });
+                fixedCount++;
+            }
+        }
+        return `Fixed ${fixedCount} broken post images.`;
+    }
 });
