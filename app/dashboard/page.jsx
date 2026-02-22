@@ -82,7 +82,7 @@ export default function DashboardPage() {
             Dashboard
           </h1>
           <p className="text-slate-400 mt-2">
-            Welcome back! Here's what's happening with your content.
+            Welcome back! Here&apos;s what&apos;s happening with your content.
           </p>
         </div>
 
@@ -318,13 +318,12 @@ export default function DashboardPage() {
                   {recentActivity.map((activity, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <div
-                        className={`w-8 h-8 rounded-full flex items-center justify-center text-xs ${
-                          activity.type === "like"
+                        className={`w-8 h-8 rounded-full flex items-center justify-center text-xs ${activity.type === "like"
                             ? "bg-red-500/20 text-red-300"
                             : activity.type === "comment"
                               ? "bg-blue-500/20 text-blue-300"
                               : "bg-green-500/20 text-green-300"
-                        }`}
+                          }`}
                       >
                         {activity.type === "like" && (
                           <Heart className="h-3 w-3" />

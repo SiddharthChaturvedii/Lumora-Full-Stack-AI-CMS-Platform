@@ -24,7 +24,7 @@ Requirements:
 - Use proper HTML formatting with headers (h2, h3), paragraphs, lists, and emphasis
 - Include 3-5 main sections with clear subheadings
 - Write in a conversational yet professional tone
-- Make it approximately 800-1200 words
+- Make it approximately 600-800 words
 - Include practical insights, examples, or actionable advice where relevant
 - Use <h2> for main sections and <h3> for subsections
 - Use <p> tags for paragraphs
