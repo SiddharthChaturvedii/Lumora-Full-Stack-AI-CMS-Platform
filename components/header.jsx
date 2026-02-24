@@ -41,18 +41,18 @@ export default function Header() {
           />
         </Link>
 
-        {/* Navigation for landing page only - Hidden on mobile to save space */}
+        {/* Navigation for landing page only */}
         {path === "/" && (
-          <div className="hidden lg:flex space-x-6 flex-1 justify-center">
+          <div className="flex text-sm sm:text-base space-x-3 sm:space-x-6 flex-1 justify-center">
             <Link
               href="#features"
-              className="text-white font-medium transition-all duration-300 hover:text-purple-300 cursor-pointer"
+              className="text-[#cccccc] font-medium transition-all duration-300 hover:text-white cursor-pointer max-sm:text-[11px]"
             >
               Features
             </Link>
             <Link
               href="#testimonials"
-              className="text-white font-medium transition-all duration-300 hover:text-purple-300 cursor-pointer"
+              className="text-[#cccccc] font-medium transition-all duration-300 hover:text-white cursor-pointer max-sm:text-[11px]"
             >
               Testimonials
             </Link>
