@@ -169,24 +169,23 @@ const Home = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {features.map((feature, index) => (
-              <Card
-                key={index}
-                className="group transition-all duration-300 hover:scale-105 card-glass"
-              >
-                <CardContent className="p-6 sm:p-8">
-                  <div
-                    className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform`}
-                  >
-                    <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                  </div>
-                  <CardTitle className="text-lg sm:text-xl mb-3 sm:mb-4 text-white">
-                    {feature.title}
-                  </CardTitle>
-                  <CardDescription className="text-sm sm:text-base text-gray-400">
-                    {feature.desc}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <Link href={feature.link} key={index} className="block">
+                <Card className="group transition-all duration-300 hover:scale-105 card-glass h-full">
+                  <CardContent className="p-6 sm:p-8">
+                    <div
+                      className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform`}
+                    >
+                      <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                    </div>
+                    <CardTitle className="text-lg sm:text-xl mb-3 sm:mb-4 text-white">
+                      {feature.title}
+                    </CardTitle>
+                    <CardDescription className="text-sm sm:text-base text-gray-400">
+                      {feature.desc}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -217,11 +216,10 @@ const Home = () => {
                   >
                     <div className="flex items-center gap-4">
                       <div
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                          activeTab === index
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center ${activeTab === index
                             ? "bg-gradient-to-br from-purple-500 to-blue-500"
                             : "bg-muted"
-                        }`}
+                          }`}
                       >
                         <tab.icon className="w-6 h-6" />
                       </div>
