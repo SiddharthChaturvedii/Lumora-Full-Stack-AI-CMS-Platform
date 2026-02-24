@@ -73,11 +73,11 @@ export default function DashboardLayout({ children }) {
         <div className="flex items-center justify-between p-5 border-b border-slate-700">
           <Link href={"/"} className="flex-shrink-0">
             <Image
-              src="/logo.png"
+              src="/creatr-logo.png"
               alt="Creatr Logo"
-              width={96}
-              height={32}
-              className="h-8 sm:h-10 md:h-11 w-auto object-contain"
+              width={140}
+              height={48}
+              className="h-10 sm:h-12 md:h-14 w-auto object-contain"
             />
           </Link>
 
@@ -158,7 +158,7 @@ export default function DashboardLayout({ children }) {
         {/* Top Header */}
         <header
           className="fixed w-full top-0 right-0 z-30 bg-slate-800/80 backdrop-blur-md border-b border-slate-700"
-          // style={{ left: "auto", width: "calc(100% - 16rem)" }}
+        // style={{ left: "auto", width: "calc(100% - 16rem)" }}
         >
           <div className="flex items-center justify-between px-4 lg:px-8 py-4">
             {/* Left Side - Mobile Menu + Search */}

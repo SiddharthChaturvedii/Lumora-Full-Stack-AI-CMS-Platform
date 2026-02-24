@@ -33,11 +33,11 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image
-            src="/logo.png"
+            src="/creatr-logo.png"
             alt="Creatr Logo"
-            width={96}
-            height={32}
-            className="h-8 sm:h-10 w-auto object-contain"
+            width={140}
+            height={48}
+            className="h-10 sm:h-12 w-auto object-contain"
           />
         </Link>
 
