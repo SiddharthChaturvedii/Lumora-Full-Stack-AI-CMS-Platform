@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { api } from "@/convex/_generated/api";
 import { useConvexMutation } from "@/hooks/use-convex-query";
@@ -27,10 +27,22 @@ export default function PostEditor({
   mode = "create", // "create" or "edit"
 }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [imageModalType, setImageModalType] = useState("featured");
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [quillRef, setQuillRef] = useState(null);
+
+  // Parse URL parameters for automatic modal opening
+  useEffect(() => {
+    const feature = searchParams.get("feature");
+    if (feature === "image") {
+      setIsImageModalOpen(true);
+      setImageModalType("featured");
+    } else if (feature === "schedule") {
+      setIsSettingsOpen(true);
+    }
+  }, [searchParams]);
 
   // Mutations with built-in loading states
   const { mutate: createPost, isLoading: isCreateLoading } = useConvexMutation(
