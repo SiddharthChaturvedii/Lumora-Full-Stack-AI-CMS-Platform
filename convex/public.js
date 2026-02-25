@@ -111,7 +111,7 @@ export const incrementViewCount = mutation({
 
     // Update view count
     await ctx.db.patch(args.postId, {
-      viewCount: post.viewCount + 1,
+      viewCount: (post.viewCount || 0) + 1,
     });
 
     // Optional: Add daily stats tracking

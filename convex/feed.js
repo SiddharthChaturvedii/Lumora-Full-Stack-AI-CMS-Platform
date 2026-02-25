@@ -25,11 +25,11 @@ export const getFeed = query({
           ...post,
           author: author
             ? {
-                _id: author._id,
-                name: author.name,
-                username: author.username,
-                imageUrl: author.imageUrl,
-              }
+              _id: author._id,
+              name: author.name,
+              username: author.username,
+              imageUrl: author.imageUrl,
+            }
             : null,
         };
       })
@@ -102,11 +102,11 @@ export const getSuggestedUsers = query({
 
           // Calculate engagement score for ranking
           const totalViews = posts.reduce(
-            (sum, post) => sum + post.viewCount,
+            (sum, post) => sum + (post.viewCount || 0),
             0
           );
           const totalLikes = posts.reduce(
-            (sum, post) => sum + post.likeCount,
+            (sum, post) => sum + (post.likeCount || 0),
             0
           );
           const engagementScore =
@@ -173,7 +173,7 @@ export const getTrendingPosts = query({
     const trendingPosts = recentPosts
       .map((post) => ({
         ...post,
-        trendingScore: post.viewCount + post.likeCount * 3,
+        trendingScore: (post.viewCount || 0) + (post.likeCount || 0) * 3,
       }))
       .sort((a, b) => b.trendingScore - a.trendingScore)
       .slice(0, limit);
@@ -186,11 +186,11 @@ export const getTrendingPosts = query({
           ...post,
           author: author
             ? {
-                _id: author._id,
-                name: author.name,
-                username: author.username,
-                imageUrl: author.imageUrl,
-              }
+              _id: author._id,
+              name: author.name,
+              username: author.username,
+              imageUrl: author.imageUrl,
+            }
             : null,
         };
       })

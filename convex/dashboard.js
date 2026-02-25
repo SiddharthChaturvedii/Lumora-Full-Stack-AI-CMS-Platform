@@ -32,8 +32,8 @@ export const getAnalytics = query({
       .collect();
 
     // Calculate analytics
-    const totalViews = posts.reduce((sum, post) => sum + post.viewCount, 0);
-    const totalLikes = posts.reduce((sum, post) => sum + post.likeCount, 0);
+    const totalViews = posts.reduce((sum, post) => sum + (post.viewCount || 0), 0);
+    const totalLikes = posts.reduce((sum, post) => sum + (post.likeCount || 0), 0);
 
     // Get comments count for user's posts
     const postIds = posts.map((p) => p._id);
@@ -57,11 +57,11 @@ export const getAnalytics = query({
 
     const recentPosts = posts.filter((p) => p.createdAt > thirtyDaysAgo);
     const recentViews = recentPosts.reduce(
-      (sum, post) => sum + post.viewCount,
+      (sum, post) => sum + (post.viewCount || 0),
       0
     );
     const recentLikes = recentPosts.reduce(
-      (sum, post) => sum + post.likeCount,
+      (sum, post) => sum + (post.likeCount || 0),
       0
     );
 
@@ -280,6 +280,11 @@ export const getDailyViews = query({
           day: "numeric",
         }),
       });
+    }
+
+    // Early return if user has no posts (prevents q.or() crash with empty array)
+    if (postIds.length === 0) {
+      return days;
     }
 
     // Get daily stats for all user's posts

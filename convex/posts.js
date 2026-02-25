@@ -271,6 +271,31 @@ export const deletePost = mutation({
       throw new Error("Not authorized to delete this post");
     }
 
+    // Clean up related data (likes, comments, dailyStats)
+    const relatedLikes = await ctx.db
+      .query("likes")
+      .filter((q) => q.eq(q.field("postId"), args.id))
+      .collect();
+    for (const like of relatedLikes) {
+      await ctx.db.delete(like._id);
+    }
+
+    const relatedComments = await ctx.db
+      .query("comments")
+      .filter((q) => q.eq(q.field("postId"), args.id))
+      .collect();
+    for (const comment of relatedComments) {
+      await ctx.db.delete(comment._id);
+    }
+
+    const relatedStats = await ctx.db
+      .query("dailyStats")
+      .filter((q) => q.eq(q.field("postId"), args.id))
+      .collect();
+    for (const stat of relatedStats) {
+      await ctx.db.delete(stat._id);
+    }
+
     await ctx.db.delete(args.id);
     return { success: true };
   },

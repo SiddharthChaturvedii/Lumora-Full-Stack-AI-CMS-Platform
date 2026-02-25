@@ -49,11 +49,12 @@ export const toggleLike = mutation({
       await ctx.db.delete(existingLike._id);
 
       // Decrement like count
+      const currentLikes = post.likeCount || 0;
       await ctx.db.patch(args.postId, {
-        likeCount: Math.max(0, post.likeCount - 1),
+        likeCount: Math.max(0, currentLikes - 1),
       });
 
-      return { liked: false, likeCount: Math.max(0, post.likeCount - 1) };
+      return { liked: false, likeCount: Math.max(0, currentLikes - 1) };
     } else {
       // Like - add the like
       await ctx.db.insert("likes", {
@@ -63,11 +64,12 @@ export const toggleLike = mutation({
       });
 
       // Increment like count
+      const currentLikes = post.likeCount || 0;
       await ctx.db.patch(args.postId, {
-        likeCount: post.likeCount + 1,
+        likeCount: currentLikes + 1,
       });
 
-      return { liked: true, likeCount: post.likeCount + 1 };
+      return { liked: true, likeCount: currentLikes + 1 };
     }
   },
 });
