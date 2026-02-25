@@ -5,6 +5,7 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { Bebas_Neue, Bodoni_Moda } from "next/font/google";
 
+
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
 const bodoni = Bodoni_Moda({ subsets: ["latin"], weight: ["400", "900"], style: ["italic"] });
 
@@ -84,6 +85,24 @@ export default function HeroSection() {
         });
     }, [frameIndex, currentFrame, frameCount]);
 
+    // Auto-scroll momentum: when last frame is reached, launch user into Features
+    const hasAutoScrolled = useRef(false);
+    useEffect(() => {
+        return scrollYProgress.on("change", (progress) => {
+            if (progress >= 0.99 && !hasAutoScrolled.current) {
+                hasAutoScrolled.current = true;
+                const featuresSection = document.getElementById("features");
+                if (featuresSection) {
+                    featuresSection.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+            // Reset the flag if user scrolls back up
+            if (progress < 0.93) {
+                hasAutoScrolled.current = false;
+            }
+        });
+    }, [scrollYProgress]);
+
     const drawFrame = (frame) => {
         const canvas = canvasRef.current;
         if (!canvas) return;
@@ -157,6 +176,7 @@ export default function HeroSection() {
 
                 {/* Ambient Overlay Layer (Vampire Brutalism subtle glow) */}
                 <div className="absolute inset-0 z-20 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]" />
+
 
             </div>
         </section>

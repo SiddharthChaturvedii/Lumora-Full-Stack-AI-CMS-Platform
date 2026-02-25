@@ -10,18 +10,18 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+          "bg-primary text-white shadow-[0_0_15px_rgba(255,0,0,0.3)] hover:bg-primary/90 hover:shadow-[0_0_25px_rgba(255,0,0,0.5)] hover:scale-105 transition-all duration-300",
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+          "border border-white/20 bg-black/50 backdrop-blur-sm shadow-xs hover:bg-white/10 hover:text-white transition-all duration-300",
         secondary:
           "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
         ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+          "hover:bg-accent/20 hover:text-accent-foreground transition-all duration-300",
         link: "text-primary underline-offset-4 hover:underline",
         primary:
-          "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-xs", // added
+          "bg-[#cc0000] text-white shadow-[0_0_15px_rgba(204,0,0,0.4)] hover:bg-[#ff0000] hover:shadow-[0_0_25px_rgba(255,0,0,0.6)] hover:-translate-y-1 transition-all duration-300", // Vampire brutalism red variant
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

@@ -53,7 +53,7 @@ export default function DashboardLayout({ children }) {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen bg-black text-white bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]">
       {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && (
         <div
@@ -65,12 +65,12 @@ export default function DashboardLayout({ children }) {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed top-0 left-0 h-full w-64 bg-slate-800/50 backdrop-blur-sm border-r border-slate-700 z-50 transition-transform duration-300 lg:translate-x-0",
+          "fixed top-0 left-0 h-full w-64 bg-[#050505]/95 backdrop-blur-md border-r border-[#222] z-50 transition-transform duration-300 lg:translate-x-0",
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
         {/* Sidebar Header */}
-        <div className="flex items-center justify-between p-5 border-b border-slate-700">
+        <div className="flex items-center justify-between p-5 border-b border-[#222]">
           <Link href={"/"} className="flex-shrink-0">
             <Image
               src="/creatr-logo.png"
@@ -107,27 +107,26 @@ export default function DashboardLayout({ children }) {
               >
                 <div
                   className={cn(
-                    "flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 group",
+                    "flex items-center space-x-3 px-4 py-3 rounded-none transition-all duration-200 group border-l-4",
                     isActive
-                      ? "bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-500/30 text-white"
-                      : "text-slate-300 hover:text-white hover:bg-slate-700/50"
+                      ? "bg-[#111] border-l-[#cc0000] text-white"
+                      : "border-l-transparent text-gray-500 hover:text-white hover:bg-[#111]"
                   )}
                 >
                   <item.icon
                     className={cn(
                       "h-5 w-5 transition-colors",
                       isActive
-                        ? "text-purple-400"
-                        : "text-slate-400 group-hover:text-white"
+                        ? "text-[#cc0000]"
+                        : "text-gray-600 group-hover:text-white"
                     )}
                   />
-                  <span className="font-medium">{item.title}</span>
+                  <span className="font-bold uppercase tracking-tight">{item.title}</span>
 
                   {/* Badge for Create Post if draft exists */}
                   {item.title === "Create Post" && draftPost && (
                     <Badge
-                      variant="secondary"
-                      className="ml-auto text-xs bg-orange-500/20 text-orange-300 border-orange-500/30"
+                      className="ml-auto text-xs bg-[#222] text-white rounded-none border-none hover:bg-[#333]"
                     >
                       Draft
                     </Badge>
@@ -157,7 +156,7 @@ export default function DashboardLayout({ children }) {
       <div className="ml-0 lg:ml-64">
         {/* Top Header */}
         <header
-          className="fixed w-full top-0 right-0 z-30 bg-slate-800/80 backdrop-blur-md border-b border-slate-700"
+          className="fixed w-full top-0 right-0 z-30 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-[#222]"
         // style={{ left: "auto", width: "calc(100% - 16rem)" }}
         >
           <div className="flex items-center justify-between px-4 lg:px-8 py-4">
@@ -180,10 +179,10 @@ export default function DashboardLayout({ children }) {
               <UserButton
                 appearance={{
                   elements: {
-                    avatarBox: "w-8 h-8 rounded-lg border border-slate-600",
+                    avatarBox: "w-8 h-8 rounded-none border border-[#444]",
                     userButtonPopoverCard:
-                      "shadow-xl backdrop-blur-md bg-slate-800/90 border border-slate-600",
-                    userPreviewMainIdentifier: "font-semibold text-white",
+                      "shadow-[0_0_20px_rgba(204,0,0,0.1)] backdrop-blur-md bg-[#050505]/95 border border-[#222] rounded-none",
+                    userPreviewMainIdentifier: "font-bold text-white uppercase",
                   },
                 }}
                 afterSignOutUrl="/"

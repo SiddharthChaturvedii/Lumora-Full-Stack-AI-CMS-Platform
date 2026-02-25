@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
 import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
-import { shadesOfPurple } from "@clerk/themes";
+import { dark } from "@clerk/themes";
 import { ConvexClientProvider } from "@/components/convex-client-provider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,12 +28,23 @@ export default function RootLayout({ children }) {
           <ClerkProvider
             publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
             appearance={{
-              baseTheme: shadesOfPurple,
+              baseTheme: dark,
+              variables: {
+                colorPrimary: "#cc0000",
+                colorBackground: "#0a0a0a",
+                colorInputBackground: "#000",
+                colorInputText: "#fff",
+              },
+              elements: {
+                card: "rounded-none border border-[#222]",
+                buttonPrimary: "rounded-none hover:bg-[#ff0000]",
+                formFieldInput: "rounded-none border-[#222]",
+              }
             }}
           >
             <ConvexClientProvider>
               <Header />
-              <main className="bg-slate-900 min-h-screen text-white">
+              <main className="bg-black min-h-screen text-white">
                 <Toaster richColors />
 
                 {children}
