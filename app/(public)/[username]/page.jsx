@@ -50,9 +50,9 @@ export default function ProfilePage({ params }) {
 
   if (userLoading || postsLoading) {
     return (
-      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
+      <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500 mx-auto mb-4"></div>
           <p className="text-slate-400">Loading profile...</p>
         </div>
       </div>
@@ -81,7 +81,7 @@ export default function ProfilePage({ params }) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Header */}
       <PublicHeader link="/" title="Back to Home" />
 
@@ -94,11 +94,11 @@ export default function ProfilePage({ params }) {
                 src={user.imageUrl}
                 alt={user.name}
                 fill
-                className="rounded-full object-cover border-2 border-slate-700"
+                className="rounded-full object-cover border-2 border-[#333]"
                 sizes="96px"
               />
             ) : (
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center text-2xl font-bold">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center text-2xl font-bold">
                 {user.name.charAt(0).toUpperCase()}
               </div>
             )}

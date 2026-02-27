@@ -33,7 +33,7 @@ const quillConfig = {
         ],
         ["image", "video"],
       ],
-      handlers: { image: function () {} },
+      handlers: { image: function () { } },
     },
   },
   formats: [
@@ -155,14 +155,14 @@ export default function PostEditorContent({
           ) : (
             <button
               onClick={() => onImageUpload("featured")}
-              className="w-full h-36 border-2 border-dashed border-slate-600 rounded-xl flex flex-col items-center justify-center space-y-4 hover:border-slate-500 transition-colors group"
+              className="w-full h-36 border-2 border-dashed border-[#333] rounded-xl flex flex-col items-center justify-center space-y-4 hover:border-[#555] transition-colors group"
             >
-              <ImageIcon className="h-12 w-12 text-slate-400 group-hover:text-slate-300" />
+              <ImageIcon className="h-12 w-12 text-gray-400 group-hover:text-gray-300" />
               <div className="text-center">
-                <p className="text-slate-300 text-lg font-medium">
+                <p className="text-gray-300 text-lg font-medium">
                   Add a featured image
                 </p>
-                <p className="text-slate-500 text-sm mt-1">
+                <p className="text-gray-500 text-sm mt-1">
                   Upload and transform with AI
                 </p>
               </div>
@@ -174,7 +174,7 @@ export default function PostEditorContent({
             <Input
               {...register("title")}
               placeholder="Post title..."
-              className="border-0 text-4xl font-bold bg-transparent placeholder:text-slate-500 text-white p-0 h-auto focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="border-0 text-4xl font-bold bg-transparent placeholder:text-gray-500 text-white p-0 h-auto focus-visible:ring-0 focus-visible:ring-offset-0"
               style={{ fontSize: "2.5rem", lineHeight: "1.2" }}
             />
             {errors.title && (
@@ -190,7 +190,7 @@ export default function PostEditorContent({
                 disabled={!hasTitle || isGenerating || isImproving}
                 variant="outline"
                 size="sm"
-                className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white disabled:opacity-50 w-full"
+                className="border-[#cc0000] text-red-400 hover:bg-[#cc0000] hover:text-white disabled:opacity-50 w-full"
               >
                 <Wand2 className="h-4 w-4 mr-2" />
                 Generate Content with AI
@@ -217,7 +217,7 @@ export default function PostEditorContent({
               </div>
             )}
             {!hasTitle && (
-              <p className="text-xs text-slate-400 w-full pt-2">
+              <p className="text-xs text-gray-400 w-full pt-2">
                 Add a title to enable AI content generation
               </p>
             )}

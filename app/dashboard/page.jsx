@@ -54,8 +54,8 @@ export default function DashboardPage() {
     return (
       <div className="flex items-center justify-center min-h-96">
         <div className="text-center">
-          <Loader2 className="h-8 w-8 animate-spin text-purple-400 mx-auto" />
-          <p className="text-slate-400 mt-4">Loading dashboard...</p>
+          <Loader2 className="h-8 w-8 animate-spin text-red-400 mx-auto" />
+          <p className="text-gray-400 mt-4">Loading dashboard...</p>
         </div>
       </div>
     );
@@ -81,7 +81,7 @@ export default function DashboardPage() {
           <h1 className="text-3xl font-bold gradient-text-primary">
             Dashboard
           </h1>
-          <p className="text-slate-400 mt-2">
+          <p className="text-gray-400 mt-2">
             Welcome back! Here&apos;s what&apos;s happening with your content.
           </p>
         </div>
@@ -98,10 +98,10 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card className="card-glass">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-            <CardTitle className="text-sm font-medium text-slate-300">
+            <CardTitle className="text-sm font-medium text-gray-300">
               Total Views
             </CardTitle>
-            <Eye className="h-4 w-4 text-blue-400" />
+            <Eye className="h-4 w-4 text-red-400" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-white">
@@ -118,7 +118,7 @@ export default function DashboardPage() {
 
         <Card className="card-glass">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-            <CardTitle className="text-sm font-medium text-slate-300">
+            <CardTitle className="text-sm font-medium text-gray-300">
               Total Likes
             </CardTitle>
             <Heart className="h-4 w-4 text-red-400" />
@@ -138,7 +138,7 @@ export default function DashboardPage() {
 
         <Card className="card-glass">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-            <CardTitle className="text-sm font-medium text-slate-300">
+            <CardTitle className="text-sm font-medium text-gray-300">
               Comments
             </CardTitle>
             <MessageCircle className="h-4 w-4 text-yellow-400" />
@@ -158,7 +158,7 @@ export default function DashboardPage() {
 
         <Card className="card-glass">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-            <CardTitle className="text-sm font-medium text-slate-300">
+            <CardTitle className="text-sm font-medium text-gray-300">
               Followers
             </CardTitle>
             <Users className="h-4 w-4 text-green-400" />
@@ -189,7 +189,7 @@ export default function DashboardPage() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-slate-400 hover:text-white"
+                    className="text-gray-400 hover:text-white"
                   >
                     View All
                   </Button>
@@ -203,7 +203,7 @@ export default function DashboardPage() {
                 </div>
               ) : !recentPosts || recentPosts.length === 0 ? (
                 <div className="text-center py-8">
-                  <p className="text-slate-400 mb-4">No posts yet</p>
+                  <p className="text-gray-400 mb-4">No posts yet</p>
                   <Link href="/dashboard/create">
                     <Button variant="outline" size="sm">
                       <PlusCircle className="h-4 w-4 mr-2" />
@@ -216,7 +216,7 @@ export default function DashboardPage() {
                   {recentPosts.map((post) => (
                     <div
                       key={post._id}
-                      className="flex items-center justify-between p-4 bg-slate-800/30 hover:bg-slate-700/30 cursor-pointer rounded-lg transition-colors"
+                      className="flex items-center justify-between p-4 bg-[#111]/30 hover:bg-[#222]/30 cursor-pointer rounded-lg transition-colors"
                       onClick={() =>
                         window.open(
                           `/dashboard/posts/edit/${post._id}`,
@@ -241,13 +241,13 @@ export default function DashboardPage() {
                               post.status === "published"
                                 ? "bg-green-500/20 text-green-300 border-green-500/30"
                                 : post.status === "scheduled"
-                                  ? "bg-blue-500/20 text-blue-300 border-blue-500/30"
+                                  ? "bg-[#cc0000]/20 text-red-300 border-[#cc0000]/30"
                                   : "bg-orange-500/20 text-orange-300 border-orange-500/30"
                             }
                           >
                             {post.status}
                           </Badge>
-                          <span className="text-sm text-slate-400">
+                          <span className="text-sm text-gray-400">
                             {post.status === "published" && post.publishedAt
                               ? `Published ${formatTime(post.publishedAt)}`
                               : post.status === "draft"
@@ -259,7 +259,7 @@ export default function DashboardPage() {
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-4 text-sm text-slate-400">
+                      <div className="flex items-center gap-4 text-sm text-gray-400">
                         <div className="flex items-center gap-1">
                           <Eye className="h-4 w-4" />
                           {post.viewCount || 0}
@@ -311,7 +311,7 @@ export default function DashboardPage() {
                 </div>
               ) : !recentActivity || recentActivity.length === 0 ? (
                 <div className="text-center py-8">
-                  <p className="text-slate-400">No recent activity</p>
+                  <p className="text-gray-400">No recent activity</p>
                 </div>
               ) : (
                 <div className="space-y-4">
@@ -319,10 +319,10 @@ export default function DashboardPage() {
                     <div key={index} className="flex items-start gap-3">
                       <div
                         className={`w-8 h-8 rounded-full flex items-center justify-center text-xs ${activity.type === "like"
-                            ? "bg-red-500/20 text-red-300"
-                            : activity.type === "comment"
-                              ? "bg-blue-500/20 text-blue-300"
-                              : "bg-green-500/20 text-green-300"
+                          ? "bg-red-500/20 text-red-300"
+                          : activity.type === "comment"
+                            ? "bg-[#cc0000]/20 text-red-300"
+                            : "bg-green-500/20 text-green-300"
                           }`}
                       >
                         {activity.type === "like" && (
@@ -346,7 +346,7 @@ export default function DashboardPage() {
                           {activity.type === "follow" &&
                             " started following you"}
                         </p>
-                        <p className="text-xs text-slate-400 mt-1">
+                        <p className="text-xs text-gray-400 mt-1">
                           {formatTime(activity.time)}
                         </p>
                       </div>
@@ -366,7 +366,7 @@ export default function DashboardPage() {
               <Link href="/dashboard/create">
                 <Button
                   variant="ghost"
-                  className="w-full justify-start text-slate-300 hover:text-white hover:bg-slate-700/50"
+                  className="w-full justify-start text-gray-300 hover:text-white hover:bg-[#222]/50"
                 >
                   <PlusCircle className="h-4 w-4 mr-2" />
                   Create New Post
@@ -376,7 +376,7 @@ export default function DashboardPage() {
               <Link href="/dashboard/posts">
                 <Button
                   variant="ghost"
-                  className="w-full justify-start text-slate-300 hover:text-white hover:bg-slate-700/50"
+                  className="w-full justify-start text-gray-300 hover:text-white hover:bg-[#222]/50"
                 >
                   <Calendar className="h-4 w-4 mr-2" />
                   Manage Posts
@@ -386,7 +386,7 @@ export default function DashboardPage() {
               <Link href="/dashboard/followers">
                 <Button
                   variant="ghost"
-                  className="w-full justify-start text-slate-300 hover:text-white hover:bg-slate-700/50"
+                  className="w-full justify-start text-gray-300 hover:text-white hover:bg-[#222]/50"
                 >
                   <Users className="h-4 w-4 mr-2" />
                   View Followers

@@ -6,7 +6,7 @@ import React from "react";
 
 const PublicHeader = ({ link, title }) => {
   return (
-    <header className="border-b border-slate-800 sticky top-0 bg-slate-900/80 backdrop-blur-sm z-10">
+    <header className="border-b border-[#222] sticky top-0 bg-black/80 backdrop-blur-sm z-10">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href={link}>
           <Button

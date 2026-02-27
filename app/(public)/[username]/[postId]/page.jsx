@@ -70,9 +70,9 @@ const PostPage = ({ params }) => {
 
   if (postLoading) {
     return (
-      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
+      <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500 mx-auto mb-4"></div>
           <p className="text-slate-400">Loading post...</p>
         </div>
       </div>
@@ -131,7 +131,7 @@ const PostPage = ({ params }) => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen bg-black text-white">
       <PublicHeader link={`/${username}`} title="Back to Profile" />
 
       <div className="max-w-4xl mx-auto px-6 py-8">
@@ -168,7 +168,7 @@ const PostPage = ({ params }) => {
                         sizes="48px"
                       />
                     ) : (
-                      <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center text-lg font-bold">
+                      <div className="w-full h-full rounded-full bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center text-lg font-bold">
                         {post.author.name.charAt(0).toUpperCase()}
                       </div>
                     )}
@@ -207,7 +207,7 @@ const PostPage = ({ params }) => {
                   <Badge
                     key={tag}
                     variant="secondary"
-                    className="bg-purple-500/20 text-purple-300 border-purple-500/30"
+                    className="bg-[#cc0000]/20 text-red-300 border-[#cc0000]/30"
                   >
                     {tag}
                   </Badge>
@@ -222,15 +222,14 @@ const PostPage = ({ params }) => {
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
-          <div className="flex items-center gap-6 pt-4 border-t border-slate-800">
+          <div className="flex items-center gap-6 pt-4 border-t border-[#222]">
             <Button
               onClick={handleLikeToggle}
               variant="ghost"
-              className={`flex items-center gap-2 ${
-                hasLiked
+              className={`flex items-center gap-2 ${hasLiked
                   ? "text-red-400 hover:text-red-300"
                   : "text-slate-400 hover:text-white"
-              }`}
+                }`}
               disabled={toggleLike.isLoading}
             >
               <Heart className={`h-5 w-5 ${hasLiked ? "fill-current" : ""}`} />
@@ -256,7 +255,7 @@ const PostPage = ({ params }) => {
                     value={commentContent}
                     onChange={(e) => setCommentContent(e.target.value)}
                     placeholder="Write a comment..."
-                    className="bg-slate-800 border-slate-600 text-white placeholder:text-slate-400 resize-none"
+                    className="bg-[#111] border-[#333] text-white placeholder:text-gray-400 resize-none"
                     rows={3}
                     maxLength={1000}
                   />
@@ -313,7 +312,7 @@ const PostPage = ({ params }) => {
                               sizes="32px"
                             />
                           ) : (
-                            <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center text-sm font-bold">
+                            <div className="w-full h-full rounded-full bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center text-sm font-bold">
                               {comment.author?.name?.charAt(0).toUpperCase()}
                             </div>
                           )}

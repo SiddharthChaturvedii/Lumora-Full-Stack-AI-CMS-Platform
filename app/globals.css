@@ -51,13 +51,15 @@
   --card-foreground: oklch(1 0 0);
   --popover: oklch(0.05 0 0);
   --popover-foreground: oklch(1 0 0);
-  --primary: oklch(0.577 0.245 27.325); /* Aggressive Red */
+  --primary: oklch(0.577 0.245 27.325);
+  /* Aggressive Red */
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.15 0 0);
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.15 0 0);
   --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.577 0.245 27.325); /* Aggressive Red */
+  --accent: oklch(0.577 0.245 27.325);
+  /* Aggressive Red */
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
@@ -85,13 +87,15 @@
   --card-foreground: oklch(1 0 0);
   --popover: oklch(0.05 0 0);
   --popover-foreground: oklch(1 0 0);
-  --primary: oklch(0.577 0.245 27.325); /* Aggressive Red */
+  --primary: oklch(0.577 0.245 27.325);
+  /* Aggressive Red */
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.15 0 0);
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.15 0 0);
   --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.577 0.245 27.325); /* Aggressive Red */
+  --accent: oklch(0.577 0.245 27.325);
+  /* Aggressive Red */
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
@@ -116,6 +120,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -127,7 +132,7 @@ html {
 
 /* Text Gradient - Complex gradient used across the app */
 .gradient-text-primary {
-  @apply bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent;
 }
 
 .gradient-text-accent {
@@ -136,5 +141,5 @@ html {
 
 /* Glass Card Effect - Complex background/border combination used frequently */
 .card-glass {
-  @apply bg-gray-900/50 border-gray-800 hover:border-purple-500/50;
+  @apply bg-gray-900/50 border-gray-800 hover:border-[#cc0000]/50;
 }

@@ -70,7 +70,7 @@ export default function FeedPage() {
   const currentPosts = getCurrentPosts();
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white pt-32 pb-5">
+    <div className="min-h-screen bg-black text-white pt-32 pb-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Feed Header */}
         <div className="text-center mb-10">
@@ -120,13 +120,13 @@ export default function FeedPage() {
                       sizes="40px"
                     />
                   ) : (
-                    <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center text-sm font-bold">
+                    <div className="w-full h-full rounded-full bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center text-sm font-bold">
                       {(currentUser.firstName || "U").charAt(0).toUpperCase()}
                     </div>
                   )}
                 </div>
                 <div className="flex-1">
-                  <div className="bg-slate-800 border border-slate-600 rounded-full px-4 py-3 text-slate-400 hover:border-slate-500 transition-colors">
+                  <div className="bg-[#111] border border-[#333] rounded-full px-4 py-3 text-gray-400 hover:border-[#555] transition-colors">
                     What&apos;s on your mind? Share your thoughts...
                   </div>
                 </div>
@@ -224,7 +224,7 @@ export default function FeedPage() {
                                     sizes="40px"
                                   />
                                 ) : (
-                                  <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center text-sm font-bold">
+                                  <div className="w-full h-full rounded-full bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center text-sm font-bold">
                                     {user.name.charAt(0).toUpperCase()}
                                   </div>
                                 )}
@@ -243,7 +243,7 @@ export default function FeedPage() {
                             onClick={() => handleFollowToggle(user._id)}
                             variant="outline"
                             size="sm"
-                            className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white"
+                            className="border-[#cc0000] text-red-400 hover:bg-[#cc0000] hover:text-white"
                           >
                             <UserPlus className="h-3 w-3 mr-1" />
                             Follow

@@ -84,8 +84,8 @@ export default function SettingsPage() {
     return (
       <div className="flex items-center justify-center min-h-96">
         <div className="text-center">
-          <Loader2 className="h-8 w-8 animate-spin text-purple-400 mx-auto" />
-          <p className="text-slate-400 mt-4">Loading settings...</p>
+          <Loader2 className="h-8 w-8 animate-spin text-red-400 mx-auto" />
+          <p className="text-gray-400 mt-4">Loading settings...</p>
         </div>
       </div>
     );
@@ -96,7 +96,7 @@ export default function SettingsPage() {
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold gradient-text-primary">Settings</h1>
-        <p className="text-slate-400 mt-2">
+        <p className="text-gray-400 mt-2">
           Manage your profile and account preferences
         </p>
       </div>
@@ -123,19 +123,19 @@ export default function SettingsPage() {
                 id="username"
                 {...register("username")}
                 placeholder="Enter your username"
-                className="bg-slate-800 border-slate-600 text-white"
+                className="bg-[#111] border-[#333] text-white"
               />
 
               {/* Current Username */}
               {currentUser?.username && (
-                <div className="text-sm text-slate-400">
+                <div className="text-sm text-gray-400">
                   Current username:{" "}
                   <span className="text-white">@{currentUser.username}</span>
                 </div>
               )}
 
               {/* Username Help */}
-              <div className="text-xs text-slate-500">
+              <div className="text-xs text-gray-500">
                 3-20 characters, letters, numbers, underscores, and hyphens only
               </div>
 

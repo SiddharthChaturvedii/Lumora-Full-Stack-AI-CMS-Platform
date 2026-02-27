@@ -287,29 +287,28 @@ export default function ImageUploadModal({
           <TabsContent value="upload" className="space-y-4">
             <div
               {...getRootProps()}
-              className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
-                isDragActive
-                  ? "border-purple-400 bg-purple-400/10"
-                  : "border-slate-600 hover:border-slate-500"
-              }`}
+              className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${isDragActive
+                  ? "border-red-400 bg-red-400/10"
+                  : "border-[#333] hover:border-[#555]"
+                }`}
             >
               <input {...getInputProps()} />
 
               {isUploading ? (
                 <div className="space-y-4">
-                  <Loader2 className="h-12 w-12 mx-auto animate-spin text-purple-400" />
-                  <p className="text-slate-300">Uploading image...</p>
+                  <Loader2 className="h-12 w-12 mx-auto animate-spin text-red-400" />
+                  <p className="text-gray-300">Uploading image...</p>
                 </div>
               ) : (
                 <div className="space-y-4">
-                  <Upload className="h-12 w-12 mx-auto text-slate-400" />
+                  <Upload className="h-12 w-12 mx-auto text-gray-400" />
                   <div>
                     <p className="text-lg text-white">
                       {isDragActive
                         ? "Drop the image here"
                         : "Drag & drop an image here"}
                     </p>
-                    <p className="text-sm text-slate-400 mt-2">
+                    <p className="text-sm text-gray-400 mt-2">
                       or click to select a file (JPG, PNG, WebP, GIF - Max 10MB)
                     </p>
                   </div>
@@ -326,13 +325,13 @@ export default function ImageUploadModal({
                   <Check className="h-3 w-3 mr-1" />
                   Image uploaded successfully!
                 </Badge>
-                <div className="text-sm text-slate-400">
+                <div className="text-sm text-gray-400">
                   {uploadedImage.width} × {uploadedImage.height} •{" "}
                   {Math.round(uploadedImage.size / 1024)}KB
                 </div>
                 <Button
                   onClick={() => setActiveTab("transform")}
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                  className="bg-gradient-to-r from-red-700 to-red-900 hover:from-red-800 hover:to-red-950"
                 >
                   <Wand2 className="h-4 w-4 mr-2" />
                   Start Transforming
@@ -352,7 +351,7 @@ export default function ImageUploadModal({
                   </h3>
 
                   {/* Background Removal */}
-                  <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+                  <div className="p-4 bg-[#111]/50 rounded-lg border border-[#333]">
                     <div className="flex items-center justify-between mb-2">
                       <Label className="text-white font-medium">
                         Remove Background
@@ -379,13 +378,13 @@ export default function ImageUploadModal({
                         )}
                       </Button>
                     </div>
-                    <p className="text-sm text-slate-400">
+                    <p className="text-sm text-gray-400">
                       AI-powered background removal
                     </p>
                   </div>
 
                   {/* Drop Shadow */}
-                  <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+                  <div className="p-4 bg-[#111]/50 rounded-lg border border-[#333]">
                     <div className="flex items-center justify-between mb-2">
                       <Label className="text-white font-medium">
                         Drop Shadow
@@ -408,7 +407,7 @@ export default function ImageUploadModal({
                         )}
                       </Button>
                     </div>
-                    <p className="text-sm text-slate-400">
+                    <p className="text-sm text-gray-400">
                       {watchedValues.backgroundRemoved
                         ? "Add realistic shadow"
                         : "Requires background removal"}
@@ -606,7 +605,7 @@ export default function ImageUploadModal({
 
                 {transformedImage && (
                   <div className="relative">
-                    <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                    <div className="bg-[#111]/50 rounded-lg p-4 border border-[#333]">
                       <img
                         src={transformedImage}
                         alt="Transformed preview"
@@ -620,8 +619,8 @@ export default function ImageUploadModal({
 
                     {isTransforming && (
                       <div className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-lg">
-                        <div className="bg-slate-800 rounded-lg p-4 flex items-center space-x-3">
-                          <Loader2 className="h-5 w-5 animate-spin text-purple-400" />
+                        <div className="bg-[#111] rounded-lg p-4 flex items-center space-x-3">
+                          <Loader2 className="h-5 w-5 animate-spin text-red-400" />
                           <span className="text-white">
                             Applying transformations...
                           </span>
@@ -633,7 +632,7 @@ export default function ImageUploadModal({
 
                 {uploadedImage && transformedImage && (
                   <div className="text-center space-y-4">
-                    <div className="text-sm text-slate-400">
+                    <div className="text-sm text-gray-400">
                       Current image URL ready for use
                     </div>
 
@@ -649,7 +648,7 @@ export default function ImageUploadModal({
                       <Button
                         onClick={handleClose}
                         variant="outline"
-                        className="border-slate-600 hover:bg-slate-700"
+                        className="border-[#333] hover:bg-[#222]"
                       >
                         Cancel
                       </Button>

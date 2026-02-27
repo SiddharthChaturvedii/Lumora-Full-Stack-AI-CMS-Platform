@@ -34,7 +34,7 @@ export default function PostEditorHeader({
   const isEdit = mode === "edit";
 
   return (
-    <header className="sticky top-0 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+    <header className="sticky top-0 bg-black/80 backdrop-blur-md border-b border-[#222]">
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Left */}
         <div className="flex items-center space-x-4">
@@ -42,7 +42,7 @@ export default function PostEditorHeader({
             variant="ghost"
             size="sm"
             onClick={onBack}
-            className="text-slate-400 hover:text-white"
+            className="text-gray-400 hover:text-white"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back
@@ -64,7 +64,7 @@ export default function PostEditorHeader({
             variant="ghost"
             size="sm"
             onClick={onSettingsOpen}
-            className="text-slate-400 hover:text-white"
+            className="text-gray-400 hover:text-white"
           >
             <Settings className="h-4 w-4" />
           </Button>
@@ -75,7 +75,7 @@ export default function PostEditorHeader({
               disabled={isPublishing}
               variant="ghost"
               size="sm"
-              className="text-slate-400 hover:text-white"
+              className="text-gray-400 hover:text-white"
             >
               {isPublishing ? (
                 <Loader2 className="h-4 w-4 animate-spin" />

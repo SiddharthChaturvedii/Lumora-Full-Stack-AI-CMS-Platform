@@ -165,7 +165,7 @@ export default function PostEditor({
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen bg-black text-white">
       <PostEditorHeader
         mode={mode}
         initialData={initialData}

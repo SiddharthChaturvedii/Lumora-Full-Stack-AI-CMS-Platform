@@ -18,7 +18,7 @@ const UserCard = ({
   onToggle,
 }) => {
   return (
-    <div className="flex items-center justify-between p-3 bg-slate-800/30 rounded-lg">
+    <div className="flex items-center justify-between p-3 bg-[#111]/30 rounded-lg">
       {/* Avatar + Info */}
       <div className="flex items-center space-x-3">
         <Link href={`/${user.username}`}>
@@ -32,7 +32,7 @@ const UserCard = ({
                 sizes="40px"
               />
             ) : (
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center text-sm font-bold">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center text-sm font-bold">
                 {user.name.charAt(0).toUpperCase()}
               </div>
             )}
@@ -58,7 +58,7 @@ const UserCard = ({
             disabled={isLoading}
             variant="outline"
             size="sm"
-            className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white"
+            className="border-[#cc0000] text-red-400 hover:bg-[#cc0000] hover:text-white"
           >
             {isLoading ? (
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -154,13 +154,13 @@ const FollowersPage = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search users..."
-          className="pl-10 bg-slate-800 border-slate-600"
+          className="pl-10 bg-[#111] border-[#333]"
         />
       </div>
 
       {/* Tabs */}
       <Tabs defaultValue="followers">
-        <TabsList className="grid w-full grid-cols-2 bg-slate-900">
+        <TabsList className="grid w-full grid-cols-2 bg-black">
           <TabsTrigger value="followers">
             Followers ({filteredFollowers.length})
           </TabsTrigger>

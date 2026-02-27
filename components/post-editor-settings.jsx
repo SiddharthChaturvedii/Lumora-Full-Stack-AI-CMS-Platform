@@ -80,7 +80,7 @@ export default function PostEditorSettings({ isOpen, onClose, form, mode }) {
               value={watchedValues.category}
               onValueChange={(value) => setValue("category", value)}
             >
-              <SelectTrigger className="bg-slate-800 border-slate-600">
+              <SelectTrigger className="bg-[#111] border-[#333]">
                 <SelectValue placeholder="Select category..." />
               </SelectTrigger>
               <SelectContent>
@@ -102,14 +102,14 @@ export default function PostEditorSettings({ isOpen, onClose, form, mode }) {
                 onChange={(e) => setTagInput(e.target.value)}
                 onKeyDown={handleTagInput}
                 placeholder="Add tags..."
-                className="bg-slate-800 border-slate-600"
+                className="bg-[#111] border-[#333]"
               />
               <Button
                 type="button"
                 onClick={addTag}
                 variant="outline"
                 size="sm"
-                className="border-slate-600"
+                className="border-[#333]"
               >
                 <Plus className="h-4 w-4" />
               </Button>
@@ -121,7 +121,7 @@ export default function PostEditorSettings({ isOpen, onClose, form, mode }) {
                   <Badge
                     key={index}
                     variant="secondary"
-                    className="bg-purple-500/20 text-purple-300 border-purple-500/30"
+                    className="bg-[#cc0000]/20 text-red-300 border-[#cc0000]/30"
                   >
                     {tag}
                     <button
@@ -136,7 +136,7 @@ export default function PostEditorSettings({ isOpen, onClose, form, mode }) {
               </div>
             )}
 
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-gray-400">
               {watchedValues.tags.length}/10 tags • Press Enter or comma to add
             </p>
           </div>
@@ -151,10 +151,10 @@ export default function PostEditorSettings({ isOpen, onClose, form, mode }) {
                 value={watchedValues.scheduledFor}
                 onChange={(e) => setValue("scheduledFor", e.target.value)}
                 type="datetime-local"
-                className="bg-slate-800 border-slate-600"
+                className="bg-[#111] border-[#333]"
                 min={new Date().toISOString().slice(0, 16)}
               />
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-gray-400">
                 Leave empty to publish immediately
               </p>
             </div>

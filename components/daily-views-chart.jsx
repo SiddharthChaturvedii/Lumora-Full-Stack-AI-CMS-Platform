@@ -23,7 +23,7 @@ const DailyViewsChart = ({ data, isLoading }) => {
   if (isLoading) {
     return (
       <div className="h-64 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-400"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-400"></div>
       </div>
     );
   }
@@ -31,7 +31,7 @@ const DailyViewsChart = ({ data, isLoading }) => {
   if (!data || data.length === 0) {
     return (
       <div className="h-64 flex items-center justify-center">
-        <p className="text-slate-400">No view data available</p>
+        <p className="text-gray-400">No view data available</p>
       </div>
     );
   }
